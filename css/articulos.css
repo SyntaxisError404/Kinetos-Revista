@@ -476,6 +476,27 @@ body.light-mode .nav-pages button:hover {
   .page-content h2 {
     font-size: 1.5rem;
   }
+
+  /* Ajuste de la cabecera para evitar solapamiento */
+  .article-header {
+    flex-wrap: wrap;
+    padding: 0.8rem 1rem;
+  }
+
+  .article-header .article-title {
+    order: 3;
+    width: 100%;
+    max-width: 100%;
+    text-align: center;
+    margin-top: 0.5rem;
+    font-size: 0.95rem;
+    white-space: normal;
+  }
+  
+  .article-header .back-btn,
+  .article-header .page-indicator {
+    font-size: 0.85rem;
+  }
 }
 
 

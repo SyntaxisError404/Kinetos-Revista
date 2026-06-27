@@ -109,7 +109,14 @@ document.addEventListener("DOMContentLoaded", function() {
       document.body.classList.toggle("light-mode");
       const isLight = document.body.classList.contains("light-mode");
       localStorage.setItem("kinetos-theme", isLight ? "light" : "dark");
-      applyTheme(isLight);
     });
   }
+});
+
+// Manejo de la caché de retroceso (bfcache) para evitar pantalla negra
+window.addEventListener('pageshow', function (event) {
+    if (event.persisted) {
+        document.body.style.opacity = '1';
+        document.body.style.transform = 'none';
+    }
 });

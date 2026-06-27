@@ -51,3 +51,11 @@ document.addEventListener("DOMContentLoaded", function () {
     setTimeout(function () { window.location.href = href; }, 520);
   });
 });
+
+// Manejo de la caché de retroceso (bfcache) para evitar pantalla negra
+window.addEventListener('pageshow', function (event) {
+    if (event.persisted) {
+        document.body.style.opacity = '1';
+        document.body.style.transform = 'none';
+    }
+});
