@@ -12,15 +12,15 @@ document.addEventListener('DOMContentLoaded', function() {
         const pages = container.querySelectorAll('.page');
         totalPages = pages.length;
         let visibleIndex = 0;
-        const scrollTop = container.scrollTop;
-        const containerHeight = container.clientHeight;
+        const scrollLeft = container.scrollLeft;
+        const containerWidth = container.clientWidth;
 
         let minDistance = Infinity;
 
         pages.forEach((page, idx) => {
             const rect = page.getBoundingClientRect();
             const containerRect = container.getBoundingClientRect();
-            const distance = Math.abs(rect.top - containerRect.top);
+            const distance = Math.abs(rect.left - containerRect.left);
             if (distance < minDistance) {
                 minDistance = distance;
                 visibleIndex = idx;
@@ -45,7 +45,7 @@ document.addEventListener('DOMContentLoaded', function() {
         prevBtn.addEventListener('click', function() {
             if (currentPageIndex > 0) {
                 const pages = container.querySelectorAll('.page');
-                pages[currentPageIndex - 1].scrollIntoView({ behavior: 'smooth', block: 'start' });
+                pages[currentPageIndex - 1].scrollIntoView({ behavior: 'smooth', inline: 'start' });
             }
         });
     }
@@ -54,7 +54,7 @@ document.addEventListener('DOMContentLoaded', function() {
         nextBtn.addEventListener('click', function() {
             const pages = container.querySelectorAll('.page');
             if (currentPageIndex < pages.length - 1) {
-                pages[currentPageIndex + 1].scrollIntoView({ behavior: 'smooth', block: 'start' });
+                pages[currentPageIndex + 1].scrollIntoView({ behavior: 'smooth', inline: 'start' });
             }
         });
     }
