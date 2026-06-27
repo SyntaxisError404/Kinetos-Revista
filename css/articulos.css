@@ -190,6 +190,14 @@ body {
   backdrop-filter: blur(8px);
   border: 1px solid #2a2a2a;
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.6);
+  opacity: 0.3;
+  transition: opacity 0.4s ease;
+}
+
+.nav-pages:hover,
+.nav-pages:active,
+.nav-pages:focus-within {
+  opacity: 1;
 }
 
 .nav-pages button {
