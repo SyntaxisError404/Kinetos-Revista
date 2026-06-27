@@ -15,11 +15,14 @@ document.addEventListener('DOMContentLoaded', function() {
         const scrollTop = container.scrollTop;
         const containerHeight = container.clientHeight;
 
+        let minDistance = Infinity;
+
         pages.forEach((page, idx) => {
             const rect = page.getBoundingClientRect();
             const containerRect = container.getBoundingClientRect();
-            const pageCenter = rect.top + rect.height/2 - containerRect.top;
-            if (pageCenter >= 0 && pageCenter <= containerHeight) {
+            const distance = Math.abs(rect.top - containerRect.top);
+            if (distance < minDistance) {
+                minDistance = distance;
                 visibleIndex = idx;
             }
         });
